@@ -52,6 +52,8 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\clsUtil.cs" />
+    <Compile Include="Global Classes\clsValidatoin.cs" />
     <Compile Include="People\frmAddUpdatePerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,9 +172,7 @@
   <ItemGroup>
     <None Include="Resources\call 32.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Global Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Calendar 32.png" />
   </ItemGroup>

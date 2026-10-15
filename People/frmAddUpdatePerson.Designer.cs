@@ -359,6 +359,7 @@
             this.btnClose.TabIndex = 15;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label15
             // 
@@ -401,6 +402,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(167, 24);
             this.txtEmail.TabIndex = 10;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label6
             // 
@@ -421,7 +423,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(167, 24);
             this.txtPhone.TabIndex = 9;
-            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating);
             // 
             // label4
             // 
@@ -597,9 +599,11 @@
             // 
             // frmAddUpdatePerson
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CancelButton = this.btnSave;
             this.ClientSize = new System.Drawing.Size(968, 562);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.groupBox1);

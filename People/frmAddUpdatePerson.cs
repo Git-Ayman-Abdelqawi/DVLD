@@ -1,4 +1,5 @@
-﻿using DVLD_Buisness;
+﻿using DVLD.Classes;
+using DVLD_Buisness;
 using Project1.Properties;
 using System;
 using System.Collections.Generic;
@@ -137,6 +138,53 @@ namespace Project1.People
 
         }
 
+        private bool _HandlePersonImage()
+        {
+
+            //this procedure will handle the person image,
+            //it will take care of deleting the old image from the folder
+            //in case the image changed. and it will rename the new image with guid and 
+            // place it in the images folder.
+
+
+            //_Person.ImagePath contains the old Image, we check if it changed then we copy the new image
+            if (_Person.ImagePath != pbPersonImage.ImageLocation)
+            {
+                if (_Person.ImagePath != "")
+                {
+                    //first we delete the old image from the folder in case there is any.
+
+                    try
+                    {
+                        File.Delete(_Person.ImagePath);
+                    }
+                    catch (IOException)
+                    {
+                        // We could not delete the file.
+                        //log it later   
+                    }
+                }
+
+                if (pbPersonImage.ImageLocation != null)
+                {
+                    //then we copy the new image to the image folder after we rename it
+                    string SourceImageFile = pbPersonImage.ImageLocation.ToString();
+
+                    if (clsUtil.CopyImageToProjectImagesFolder(ref SourceImageFile))
+                    {
+                        pbPersonImage.ImageLocation = SourceImageFile;
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error Copying Image File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
           
@@ -157,7 +205,10 @@ namespace Project1.People
 
             }
 
+            if (!_HandlePersonImage())
+        return;
            
+
 
             int NationalityCountryID = clsCountry.Find(cbCountry.Text).ID;
 
@@ -248,21 +299,7 @@ namespace Project1.People
 
      
 
-        private void txtFirstName_Validating(object sender, CancelEventArgs e)
-        {
-            TextBox Temp = (TextBox)sender;
-
-            if (string.IsNullOrEmpty(Temp.Text.Trim()))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(Temp, "This field is required!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider1.SetError(Temp, "");
-            }
-        }
+     
 
         private void txtNationalNo_Validating(object sender, CancelEventArgs e)
         {
@@ -288,6 +325,61 @@ namespace Project1.People
                 e.Cancel = false;
                 errorProvider1.SetError(txtNationalNo, "");
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtEmail.Text.Trim() == "")
+                return;
+
+            if(!clsValidatoin.ValidateEmail(txtEmail.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtEmail, "Invalid Email Address Format!");
+
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtEmail, "");
+            }
+        }
+
+        private void txtFirstName_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox Temp = (TextBox)sender;
+
+            if (string.IsNullOrEmpty(Temp.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(Temp, "This field is required!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(Temp, "");
+            }
+        }
+
+        
+        private void txtPhone_Validating(object sender, CancelEventArgs e)
+        {
+            if (!clsValidatoin.ValidateFloat(txtPhone.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtPhone, "Only numbers are allowed!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtPhone, "");
+            }
+
         }
     }
 }

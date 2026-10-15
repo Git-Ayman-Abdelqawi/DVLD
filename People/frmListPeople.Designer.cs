@@ -209,6 +209,7 @@
             this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
             this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.addNewPersonToolStripMenuItem.Text = "Add New Person";
+            this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.addNewPersonToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DVLD_Buisness;
+
 
 namespace Project1.People
 {
@@ -51,10 +51,16 @@ namespace Project1.People
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form frm = new frmAddUpdatePerson((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frmAddUpdatePerson frm = new frmAddUpdatePerson((int)dgvPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
 
             _RefreshPeoplList();
+        }
+
+        private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePerson frm = new frmAddUpdatePerson();
+            frm.Show();
         }
     }
 }
