@@ -97,7 +97,7 @@ namespace DVLD_DataAcsses
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM People WHERE PersonID=@NationalNo";
+            string query = "SELECT * FROM People WHERE NationalNo=@NationalNo";
 
             SqlCommand command = new SqlCommand(query, connection);
 

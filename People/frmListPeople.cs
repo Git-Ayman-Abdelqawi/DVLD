@@ -41,7 +41,7 @@ namespace Project1.People
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void frmListPeople_Load(object sender, EventArgs e)
@@ -61,6 +61,13 @@ namespace Project1.People
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson();
             frm.Show();
+        }
+
+        private void showDetilsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmShowPersonInfo frm = new frmShowPersonInfo((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
         }
     }
 }

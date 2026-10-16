@@ -16,7 +16,11 @@ namespace Project1.People
 {
     public partial class frmAddUpdatePerson : Form
     {
+        public delegate void DataBackEventHander(object sender, int Person);
+        
 
+        public DataBackEventHander DataBack;
+     
         private enum enMode { AddNew = 0, Update = 1 };
         public enum enGendor { Male = 0, Female = 1 };
 
@@ -207,8 +211,8 @@ namespace Project1.People
 
             if (!_HandlePersonImage())
         return;
-           
 
+            
 
             int NationalityCountryID = clsCountry.Find(cbCountry.Text).ID;
 
@@ -242,10 +246,10 @@ namespace Project1.People
                 lblTitle.Text = "Update Person";
 
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                DataBack?.Invoke(this, _Person.PersonID);
 
                 // Trigger the event to send data back to the caller form.
-               
+
             }
             else
                 MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -330,6 +334,9 @@ namespace Project1.People
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+
+            
+            
         }
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
@@ -379,6 +386,11 @@ namespace Project1.People
                 e.Cancel = false;
                 errorProvider1.SetError(txtPhone, "");
             }
+
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
 
         }
     }
