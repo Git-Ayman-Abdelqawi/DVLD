@@ -29,7 +29,7 @@ namespace Project1.People
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            DataBack?.Invoke(this,ctrlPersonCardWithFilter1.PersonID);
+            DataBack?.Invoke(this,ctrlPersonCardWithFilter1.PersonId);
         }
     }
 }

@@ -39,6 +39,7 @@
             this.ctrlPersonCard1.Name = "ctrlPersonCard1";
             this.ctrlPersonCard1.Size = new System.Drawing.Size(953, 309);
             this.ctrlPersonCard1.TabIndex = 0;
+            this.ctrlPersonCard1.Load += new System.EventHandler(this.ctrlPersonCard1_Load);
             // 
             // btnClose
             // 
@@ -77,6 +78,7 @@
             this.Name = "frmShowPersonInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Person Dateils";
+            this.Load += new System.EventHandler(this.frmShowPersonInfo_Load);
             this.ResumeLayout(false);
 
         }

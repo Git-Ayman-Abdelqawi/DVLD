@@ -30,5 +30,15 @@ namespace Project1.People
         {
             this.Close();
         }
+
+        private void frmShowPersonInfo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ctrlPersonCard1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

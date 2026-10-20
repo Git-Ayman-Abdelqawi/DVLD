@@ -62,7 +62,7 @@ namespace Project1.People.Controls
             InitializeComponent();
         }
 
-        public int PersonID = -1;
+        private int PersonID = -1;
 
         public int PersonId
         {
@@ -96,7 +96,7 @@ namespace Project1.People.Controls
             }
 
             if ( FilterEnabled)
-                OnPersonSelected(ctrlPersonCard1.PersonID);
+                PersonSelected(ctrlPersonCard1.PersonID);
         }
         private void ctrlPersonCard1_Load(object sender, EventArgs e)
         {
@@ -115,6 +115,11 @@ namespace Project1.People.Controls
             cbFilterBy.SelectedIndex = 1;
             txtFilterValue.Text = PersonID.ToString();
             ctrlPersonCard1.LoadPersonInfo(PersonID);
+        }
+
+        public void FilterFocus()
+        {
+            txtFilterValue.Focus();
         }
         private void btnFind_Click(object sender, EventArgs e)
         {
