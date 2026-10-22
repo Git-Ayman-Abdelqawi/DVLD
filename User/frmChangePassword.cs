@@ -181,5 +181,10 @@ namespace Project1.User
         {
             this.Close();
         }
+
+        private void ctrlUserCard1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

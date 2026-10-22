@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD.Classes;
 using DVLD_Buisness;
+using Project1.Applications.Application_Types;
 using Project1.Login;
 using Project1.People;
 using Project1.User;
@@ -56,8 +57,10 @@ namespace Project1
             clsGlobal.CurrentUser = null;
             _frmLogin.Show();
 
-            this.Close();
-        
+            Application.Exit();
+
+            _frmLogin.Show();
+
         }
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,6 +73,23 @@ namespace Project1
             frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
             frm.ShowDialog();
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListTestTypes frm = new frmListTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListApplicationTypes frm = new frmListApplicationTypes();
+            frm.ShowDialog();
         }
     }
 }

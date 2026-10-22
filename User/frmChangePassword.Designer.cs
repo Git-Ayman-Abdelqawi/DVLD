@@ -178,6 +178,7 @@
             this.ctrlUserCard1.Name = "ctrlUserCard1";
             this.ctrlUserCard1.Size = new System.Drawing.Size(1036, 448);
             this.ctrlUserCard1.TabIndex = 0;
+            this.ctrlUserCard1.Load += new System.EventHandler(this.ctrlUserCard1_Load);
             // 
             // frmChangePassword
             // 

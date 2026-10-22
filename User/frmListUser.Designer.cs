@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.dgvAppliactionType = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,7 +49,7 @@
             this.cbiActive = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppliactionType)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -65,16 +65,16 @@
             this.lblTitle.Text = "Manage Users";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgvUsers
+            // dgvAppliactionType
             // 
-            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvUsers.Location = new System.Drawing.Point(4, 288);
-            this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.RowHeadersWidth = 51;
-            this.dgvUsers.RowTemplate.Height = 26;
-            this.dgvUsers.Size = new System.Drawing.Size(975, 188);
-            this.dgvUsers.TabIndex = 99;
+            this.dgvAppliactionType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppliactionType.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvAppliactionType.Location = new System.Drawing.Point(4, 288);
+            this.dgvAppliactionType.Name = "dgvAppliactionType";
+            this.dgvAppliactionType.RowHeadersWidth = 51;
+            this.dgvAppliactionType.RowTemplate.Height = 26;
+            this.dgvAppliactionType.Size = new System.Drawing.Size(975, 188);
+            this.dgvAppliactionType.TabIndex = 99;
             // 
             // contextMenuStrip1
             // 
@@ -260,14 +260,14 @@
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgvUsers);
+            this.Controls.Add(this.dgvAppliactionType);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitle);
             this.Name = "frmListUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListUser";
             this.Load += new System.EventHandler(this.frmListUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppliactionType)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -279,7 +279,7 @@
 
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dgvUsers;
+        private System.Windows.Forms.DataGridView dgvAppliactionType;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem showDetilsToolStripMenuItem;

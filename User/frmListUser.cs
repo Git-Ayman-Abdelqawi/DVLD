@@ -26,8 +26,8 @@ namespace Project1.User
         {
             _dtAllUser = clsUser.GetAllUsers();
 
-            dgvUsers.DataSource = _dtAllUser;
-            lblRecordsCount.Text = dgvUsers.Rows.Count.ToString();
+            dgvAppliactionType.DataSource = _dtAllUser;
+            lblRecordsCount.Text = dgvAppliactionType.Rows.Count.ToString();
 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -44,25 +44,25 @@ namespace Project1.User
 
             
             cbFilterBy.SelectedIndex = 0;
-            dgvUsers.DataSource = _dtAllUser;
-            lblRecordsCount.Text = dgvUsers.Rows.Count.ToString();
+            dgvAppliactionType.DataSource = _dtAllUser;
+            lblRecordsCount.Text = dgvAppliactionType.Rows.Count.ToString();
 
-            if (dgvUsers.Rows.Count > 0)
+            if (dgvAppliactionType.Rows.Count > 0)
             {
-                dgvUsers.Columns[0].HeaderText = "User ID";
-                dgvUsers.Columns[0].Width = 100;
+                dgvAppliactionType.Columns[0].HeaderText = "User ID";
+                dgvAppliactionType.Columns[0].Width = 100;
 
-                dgvUsers.Columns[1].HeaderText = "Person ID";
-                dgvUsers.Columns[1].Width = 100;
+                dgvAppliactionType.Columns[1].HeaderText = "Person ID";
+                dgvAppliactionType.Columns[1].Width = 100;
 
-                dgvUsers.Columns[2].HeaderText = "Full Name";
-                dgvUsers.Columns[2].Width = 300;
+                dgvAppliactionType.Columns[2].HeaderText = "Full Name";
+                dgvAppliactionType.Columns[2].Width = 300;
 
-                dgvUsers.Columns[3].HeaderText = "User Name";
-                dgvUsers.Columns[3].Width = 190;
+                dgvAppliactionType.Columns[3].HeaderText = "User Name";
+                dgvAppliactionType.Columns[3].Width = 190;
 
-                dgvUsers.Columns[4].HeaderText = "ISActive";
-                dgvUsers.Columns[4].Width = 80;
+                dgvAppliactionType.Columns[4].HeaderText = "ISActive";
+                dgvAppliactionType.Columns[4].Width = 80;
 
             }
 
@@ -70,7 +70,7 @@ namespace Project1.User
 
         private void showDetilsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUserInfo frm = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frmUserInfo frm = new frmUserInfo((int)dgvAppliactionType.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
             _RefreshUserList();
 
@@ -78,12 +78,12 @@ namespace Project1.User
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
+            int UserID = (int)dgvAppliactionType.CurrentRow.Cells[0].Value;
 
 
             if (clsUser.DeleteUser(UserID))
             {
-                if (clsPerson.DeletePerson((int)dgvUsers.CurrentRow.Cells[0].Value))
+                if (clsPerson.DeletePerson((int)dgvAppliactionType.CurrentRow.Cells[0].Value))
                 {
                     MessageBox.Show("User has been Deleted Successfully.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmListUser_Load(null, null);
@@ -97,7 +97,7 @@ namespace Project1.User
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddUpdateUser frm = new frmAddUpdateUser((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frmAddUpdateUser frm = new frmAddUpdateUser((int)dgvAppliactionType.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
 
             frmListUser_Load(null, null);
@@ -197,7 +197,7 @@ namespace Project1.User
 
         private void changePassowrdToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frmChangePassword frm = new frmChangePassword((int)dgvAppliactionType.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
             _RefreshUserList();
         }
